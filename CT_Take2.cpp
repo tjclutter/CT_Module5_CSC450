@@ -7,16 +7,24 @@ using namespace std;
 
 //declare reverseFile that takes a filename as input
 void reverseFile(string fileName){
-	//create ifstream object readFile to
+	//create ifstream object readFile to extract info from
 	ifstream readFile(fileName);
+	//create ofstream object writeFile to write data to file
 	ofstream writeFile("CSC450-mod5-reverse.txt");
+	//declare string variable to hold input
 	string fileLine;
+	//iterate through code while readFile still has data
 	while(getline(readFile, fileLine)){
+		//declare variable reverseLine to store reversed input
 		string reverseLine;
+		//iterate through length of fileLine to reverse the string
+		//and store in variable reverseLine
 		for (int i = fileLine.length(); i >= 0; i--){
 			reverseLine += fileLine[i];
 		}
+		//Write reverseLine to file
 		writeFile << reverseLine;
+		//write an end line to file
 		writeFile << endl;
 
 	}
